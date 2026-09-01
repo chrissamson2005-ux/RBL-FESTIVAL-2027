@@ -5,13 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RBL FESTIVAL 2027</title>
+<title>🎄 RBL CHRISTMAS 2026 🎄</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 *{
     margin:0;
@@ -31,8 +27,8 @@ body{
 
     background:
         linear-gradient(
-            rgba(0,0,0,.20),
-            rgba(0,0,0,.60)
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.72)
         ),
         url("./background.png.png");
 
@@ -42,6 +38,80 @@ body{
     background-attachment:fixed;
 }
 
+/* =========================
+   SNOW
+========================= */
+
+.snow{
+    position:fixed;
+    top:-20px;
+    color:white;
+    font-size:18px;
+    pointer-events:none;
+    z-index:999999;
+    animation:fall linear infinite;
+    text-shadow:0 0 8px #fff;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:.8;
+    }
+}
+
+/* =========================
+   CHRISTMAS LIGHTS
+========================= */
+
+.lights{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:18px;
+    z-index:999998;
+    display:flex;
+    justify-content:space-around;
+    pointer-events:none;
+}
+
+.light{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-top:3px;
+    animation:blink 1.2s infinite alternate;
+}
+
+.light:nth-child(odd){
+    background:#ff2222;
+    box-shadow:0 0 10px #ff2222,0 0 20px #ff2222;
+}
+
+.light:nth-child(even){
+    background:#00ff55;
+    box-shadow:0 0 10px #00ff55,0 0 20px #00ff55;
+}
+
+@keyframes blink{
+    from{
+        opacity:.35;
+    }
+
+    to{
+        opacity:1;
+    }
+}
 
 /* =========================
    TOP BAR
@@ -49,17 +119,17 @@ body{
 
 .announcement-bar{
     position:fixed;
-    top:0;
+    top:18px;
     left:0;
     width:100%;
     height:38px;
-    background:#0066ff;
+    background:#c40018;
     overflow:hidden;
-    z-index:99999;
+    z-index:99997;
 
     box-shadow:
-        0 0 10px #0066ff,
-        0 0 25px rgba(0,102,255,.8);
+        0 0 10px #ff1835,
+        0 0 25px rgba(255,0,40,.6);
 }
 
 .announcement-track{
@@ -70,8 +140,8 @@ body{
 }
 
 .announcement-track span{
-    color:#000;
-    font-size:20px;
+    color:#fff;
+    font-size:19px;
     font-weight:900;
     margin-right:45px;
     line-height:38px;
@@ -87,14 +157,13 @@ body{
     }
 }
 
-
 /* =========================
    NAVBAR
 ========================= */
 
 .navbar{
     position:fixed;
-    top:38px;
+    top:56px;
     left:0;
     width:100%;
     height:70px;
@@ -105,27 +174,27 @@ body{
 
     padding:0 45px;
 
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.82);
     backdrop-filter:blur(10px);
 
-    border-bottom:1px solid #00eaff;
+    border-bottom:1px solid #d90022;
 
     box-shadow:
-        0 0 20px rgba(0,234,255,.5);
+        0 0 20px rgba(220,0,30,.4);
 
     z-index:9998;
 }
 
 .logo{
-    color:#00eaff;
+    color:#ff3048;
     font-size:24px;
     font-weight:900;
     letter-spacing:3px;
 
     text-shadow:
-        0 0 8px #00eaff,
-        0 0 20px #00eaff,
-        0 0 40px #00eaff;
+        0 0 8px #ff3048,
+        0 0 20px #ff3048,
+        0 0 40px #a90018;
 }
 
 .menu{
@@ -144,11 +213,11 @@ body{
 }
 
 .menu a:hover{
-    color:#00eaff;
+    color:#20ff72;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #20ff72,
+        0 0 25px #20ff72;
 }
 
 .nav-right{
@@ -158,43 +227,75 @@ body{
 }
 
 .year-top{
-    color:#00eaff;
+    color:#20ff72;
     font-size:21px;
     font-weight:900;
     letter-spacing:4px;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #20ff72,
+        0 0 25px #20ff72;
 }
 
-.join-button{
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button{
     padding:12px 20px;
 
-    color:#00eaff;
+    color:#fff;
     text-decoration:none;
 
     font-size:14px;
     font-weight:900;
     letter-spacing:2px;
 
-    border:1px solid #00eaff;
-    background:rgba(0,10,20,.85);
+    border:1px solid #ff3048;
 
-    box-shadow:0 0 10px #00eaff;
+    background:rgba(0,0,0,.75);
+
+    box-shadow:
+        0 0 10px #ff3048;
+
+    transition:.3s;
+}
+
+.back-button:hover{
+    background:#ff3048;
+    color:#000;
+
+    box-shadow:
+        0 0 20px #ff3048,
+        0 0 40px #ff3048;
+}
+
+.join-button{
+    padding:12px 20px;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:2px;
+
+    border:1px solid #20ff72;
+    background:rgba(0,20,5,.85);
+
+    box-shadow:0 0 10px #20ff72;
 
     transition:.3s;
 }
 
 .join-button:hover{
-    background:#00eaff;
+    background:#20ff72;
     color:#000;
 
     box-shadow:
-        0 0 20px #00eaff,
-        0 0 40px #00eaff;
+        0 0 20px #20ff72,
+        0 0 40px #20ff72;
 }
-
 
 /* =========================
    HOME
@@ -209,22 +310,45 @@ body{
 
     text-align:center;
 
-    padding:170px 20px 60px;
+    padding:180px 20px 60px;
 }
 
 .home-content{
     max-width:1100px;
 }
 
+.christmas-icon{
+    font-size:75px;
+    margin-bottom:10px;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(255,255,255,.8)
+        );
+
+    animation:
+        treePulse 2s infinite alternate;
+}
+
+@keyframes treePulse{
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.06);
+    }
+}
+
 .year{
-    color:#00eaff;
+    color:#20ff72;
     font-size:25px;
     letter-spacing:8px;
     margin-bottom:15px;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #20ff72,
+        0 0 25px #20ff72;
 }
 
 .title{
@@ -232,16 +356,18 @@ body{
     font-weight:900;
     letter-spacing:8px;
 
+    color:#fff;
+
     text-shadow:
         0 0 10px #fff,
-        0 0 25px #00eaff,
-        0 0 50px #00eaff,
-        0 0 90px #0066ff;
+        0 0 25px #ff1835,
+        0 0 50px #ff1835,
+        0 0 90px #087d32;
 }
 
 .subtitle{
     margin-top:20px;
-    color:#d8faff;
+    color:#fff;
     font-size:20px;
     letter-spacing:5px;
 }
@@ -251,6 +377,7 @@ body{
 
     display:flex;
     justify-content:center;
+
     gap:20px;
     flex-wrap:wrap;
 }
@@ -266,25 +393,26 @@ body{
     font-weight:bold;
     letter-spacing:2px;
 
-    border:1px solid #00eaff;
-    background:rgba(0,0,0,.50);
+    border:1px solid #20ff72;
+
+    background:rgba(0,0,0,.55);
 
     box-shadow:
-        0 0 10px rgba(0,234,255,.5);
+        0 0 10px rgba(32,255,114,.5);
 
     transition:.3s;
 }
 
 .home-button:hover{
-    background:#00eaff;
+    background:#20ff72;
     color:#000;
+
     transform:translateY(-3px);
 
     box-shadow:
-        0 0 20px #00eaff,
-        0 0 40px #00eaff;
+        0 0 20px #20ff72,
+        0 0 40px #20ff72;
 }
-
 
 /* =========================
    COUNTDOWN
@@ -303,32 +431,33 @@ body{
 
     text-align:center;
 
-    background:rgba(0,5,15,.88);
+    background:rgba(0,5,0,.90);
 
-    border:1px solid #00eaff;
+    border:1px solid #d90022;
 
     box-shadow:
-        0 0 20px #00eaff,
-        0 0 50px rgba(0,234,255,.35);
+        0 0 20px #d90022,
+        0 0 50px rgba(220,0,30,.25);
 }
 
 .countdown-title{
     margin-bottom:25px;
 
-    color:#00eaff;
+    color:#ff3048;
 
     font-size:22px;
     font-weight:900;
     letter-spacing:4px;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #ff3048,
+        0 0 25px #ff3048;
 }
 
 #countdown{
     display:flex;
     justify-content:center;
+
     gap:20px;
     flex-wrap:wrap;
 }
@@ -337,12 +466,12 @@ body{
     min-width:140px;
     padding:20px 15px;
 
-    border:1px solid #00eaff;
+    border:1px solid #20ff72;
 
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.60);
 
     box-shadow:
-        0 0 15px rgba(0,234,255,.5);
+        0 0 15px rgba(32,255,114,.4);
 }
 
 .countdown-item span{
@@ -355,15 +484,16 @@ body{
     line-height:1;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #20ff72,
+        0 0 25px #20ff72;
 }
 
 .countdown-item small{
     display:block;
+
     margin-top:10px;
 
-    color:#00eaff;
+    color:#20ff72;
 
     font-size:13px;
     font-weight:900;
@@ -371,16 +501,15 @@ body{
 }
 
 .festival-started{
-    color:#00ff66;
+    color:#20ff72;
 
     font-size:30px;
     font-weight:900;
 
     text-shadow:
-        0 0 10px #00ff66,
-        0 0 30px #00ff66;
+        0 0 10px #20ff72,
+        0 0 30px #20ff72;
 }
-
 
 /* =========================
    SECTIONS
@@ -388,9 +517,10 @@ body{
 
 section{
     min-height:100vh;
+
     padding:150px 30px 100px;
 
-    background:rgba(0,0,0,.38);
+    background:rgba(0,0,0,.42);
 }
 
 .section-title{
@@ -402,9 +532,9 @@ section{
     letter-spacing:5px;
 
     text-shadow:
-        0 0 15px #00eaff;
+        0 0 15px #ff1835,
+        0 0 30px #087d32;
 }
-
 
 /* =========================
    TICKETS
@@ -417,7 +547,7 @@ section{
 
     text-align:center;
 
-    background:#ff0000;
+    background:#c40018;
 
     color:#fff;
 
@@ -425,16 +555,18 @@ section{
     font-weight:900;
     letter-spacing:2px;
 
-    border:2px solid #ff0000;
+    border:2px solid #ff3048;
 
     box-shadow:
-        0 0 10px #ff0000,
-        0 0 25px #ff0000;
+        0 0 10px #ff3048,
+        0 0 25px #ff3048;
 
-    animation:redGlow 1.5s infinite alternate;
+    animation:
+        redGlow 1.5s infinite alternate;
 }
 
 @keyframes redGlow{
+
     from{
         box-shadow:
             0 0 5px #ff0000,
@@ -444,9 +576,9 @@ section{
     to{
         box-shadow:
             0 0 20px #ff0000,
-            0 0 45px #ff0000,
-            0 0 70px rgba(255,0,0,.9);
+            0 0 45px #ff0000;
     }
+
 }
 
 .tickets{
@@ -455,6 +587,7 @@ section{
 
     display:flex;
     justify-content:center;
+
     gap:25px;
     flex-wrap:wrap;
 }
@@ -466,12 +599,12 @@ section{
 
     text-align:center;
 
-    background:rgba(0,10,20,.80);
+    background:rgba(0,10,5,.85);
 
-    border:1px solid #00eaff;
+    border:1px solid #20ff72;
 
     box-shadow:
-        0 0 20px rgba(0,234,255,.3);
+        0 0 20px rgba(32,255,114,.3);
 
     transition:.3s;
 }
@@ -480,7 +613,7 @@ section{
     transform:translateY(-8px);
 
     box-shadow:
-        0 0 30px #00eaff;
+        0 0 30px #20ff72;
 }
 
 .ticket-card h3{
@@ -489,16 +622,15 @@ section{
 }
 
 .price{
-    color:#00eaff;
+    color:#ff3048;
 
     font-size:35px;
 
     margin-bottom:25px;
 
     text-shadow:
-        0 0 15px #00eaff;
+        0 0 15px #ff3048;
 }
-
 
 /* =========================
    ARTISTS
@@ -528,19 +660,14 @@ section{
     position:relative;
     overflow:hidden;
 
-    border:1px solid rgba(0,234,255,.8);
+    border:1px solid rgba(32,255,114,.8);
 
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px;
-
-    text-shadow:
-        0 0 5px #000,
-        0 0 15px #00eaff;
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(200,0,20,.45),
+            rgba(0,50,20,.45)
+        );
 
     transition:.3s;
 }
@@ -548,149 +675,55 @@ section{
 .artist:hover{
     transform:scale(1.04);
 
-    color:#00eaff;
-
     box-shadow:
-        0 0 20px #00eaff,
-        0 0 40px #00eaff;
+        0 0 20px #20ff72,
+        0 0 40px #c40018;
 }
 
-.artist span{
-    position:relative;
-    z-index:2;
+.artist::before{
+    content:"🎄";
+
+    position:absolute;
+
+    top:35%;
+    left:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    font-size:65px;
+
+    filter:
+        drop-shadow(
+            0 0 15px #20ff72
+        );
 }
 
+.artist::after{
+    content:"✨";
 
-/* =========================
-   ARTIST IMAGES
-========================= */
+    position:absolute;
 
-.artist-1{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Meduza.png");
+    top:15px;
+    right:20px;
+
+    font-size:28px;
+
+    animation:
+        twinkle 1.5s infinite alternate;
 }
 
-.artist-2{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Baby Gang.png");
-}
+@keyframes twinkle{
 
-.artist-3{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Azteca.png");
-}
+    from{
+        opacity:.3;
+    }
 
-.artist-4{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./PetreStefan.png");
-}
+    to{
+        opacity:1;
+    }
 
-.artist-5{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Rava.png");
 }
-
-.artist-6{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./ZaraLarsson.webp");
-}
-
-.artist-7{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Boris.png");
-}
-
-.artist-8{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./FredAgain.png");
-}
-
-.artist-9{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Anyma.png");
-}
-
-.artist-10{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Andra.png");
-}
-
-.artist-11{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./IrinaRimes.png");
-}
-
-.artist-12{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./AlbertNBN.png");
-}
-
-.artist-13{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Skrillex.png");
-}
-
-.artist-14{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./KissFM.png");
-}
-
-.artist-15{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Hugel.webp");
-}
-
-.artist-16{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Kolsch.webp");
-}
-
-.artist-17{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./DTF.png");
-}
-
-.artist-18{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./MartinGarrix.png");
-}
-
-.artist-19{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./Saguna.png");
-}
-
-.artist-20{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./PostMalone.png");
-}
-
-.artist-21{
-    background-image:
-        linear-gradient(transparent 15%,rgba(0,0,0,.90)),
-        url("./DenisaIoana.png");
-}
-
 
 /* =========================
    PROGRAM
@@ -706,12 +739,12 @@ section{
 
     padding:35px;
 
-    background:rgba(0,8,18,.88);
+    background:rgba(0,8,3,.90);
 
-    border:1px solid #00eaff;
+    border:1px solid #20ff72;
 
     box-shadow:
-        0 0 25px rgba(0,234,255,.35);
+        0 0 25px rgba(32,255,114,.35);
 }
 
 .program-live{
@@ -724,27 +757,27 @@ section{
 
     padding:10px 20px;
 
-    border:1px solid #00ff66;
+    border:1px solid #ff3048;
 
-    color:#00ff66;
+    color:#ff3048;
 
     font-weight:900;
     letter-spacing:3px;
 
     box-shadow:
-        0 0 15px rgba(0,255,102,.5);
+        0 0 15px rgba(255,48,72,.5);
 }
 
 .program-day{
     margin-bottom:40px;
 
-    border-left:3px solid #00eaff;
+    border-left:3px solid #ff3048;
 
     padding-left:20px;
 }
 
 .program-day h3{
-    color:#00eaff;
+    color:#20ff72;
 
     font-size:27px;
 
@@ -753,7 +786,7 @@ section{
     letter-spacing:4px;
 
     text-shadow:
-        0 0 10px #00eaff;
+        0 0 10px #20ff72;
 }
 
 .program-item{
@@ -770,24 +803,24 @@ section{
 
     background:rgba(255,255,255,.035);
 
-    border:1px solid rgba(0,234,255,.20);
+    border:1px solid rgba(32,255,114,.20);
 
     transition:.3s;
 }
 
 .program-item:hover{
-    background:rgba(0,234,255,.10);
+    background:rgba(32,255,114,.10);
 
-    border-color:#00eaff;
+    border-color:#20ff72;
 
     box-shadow:
-        0 0 10px rgba(0,234,255,.25);
+        0 0 10px rgba(32,255,114,.25);
 }
 
 .program-time{
     min-width:60px;
 
-    color:#00eaff;
+    color:#ff3048;
 
     font-size:13px;
     font-weight:900;
@@ -811,25 +844,26 @@ section{
     font-weight:900;
 }
 
-
 /* =========================
-   FINAL
+   CHRISTMAS FINAL
 ========================= */
 
-.tron-section{
+.christmas-section{
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
 }
 
-.tron-content{
+.christmas-content{
     max-width:950px;
     margin:auto;
 }
 
-.tron-title{
-    color:#00eaff;
+.christmas-title{
+    color:#ff3048;
 
     font-size:50px;
 
@@ -838,13 +872,13 @@ section{
     margin-bottom:30px;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 30px #00eaff,
-        0 0 60px #0066ff;
+        0 0 10px #ff3048,
+        0 0 30px #ff3048,
+        0 0 60px #087d32;
 }
 
-.tron-text{
-    color:#d8faff;
+.christmas-text{
+    color:#eaffee;
 
     font-size:19px;
 
@@ -853,8 +887,8 @@ section{
     margin-bottom:30px;
 }
 
-.tron-slogan{
-    color:#fff;
+.christmas-slogan{
+    color:#20ff72;
 
     font-size:24px;
 
@@ -863,10 +897,9 @@ section{
     letter-spacing:4px;
 
     text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #00eaff;
+        0 0 10px #20ff72,
+        0 0 25px #20ff72;
 }
-
 
 /* =========================
    MOBILE
@@ -875,6 +908,7 @@ section{
 @media(max-width:600px){
 
     .announcement-bar{
+        top:18px;
         height:34px;
     }
 
@@ -885,13 +919,13 @@ section{
     }
 
     .navbar{
-        top:34px;
+        top:52px;
         height:60px;
         padding:0 10px;
     }
 
     .logo{
-        font-size:14px;
+        font-size:13px;
         letter-spacing:1px;
     }
 
@@ -900,7 +934,7 @@ section{
     }
 
     .menu a{
-        font-size:9px;
+        font-size:8px;
         letter-spacing:1px;
     }
 
@@ -909,13 +943,23 @@ section{
         letter-spacing:2px;
     }
 
+    .back-button{
+        padding:7px 8px;
+        font-size:8px;
+        letter-spacing:1px;
+    }
+
     .join-button{
         padding:7px 8px;
         font-size:8px;
     }
 
+    .christmas-icon{
+        font-size:55px;
+    }
+
     .title{
-        font-size:45px;
+        font-size:43px;
         letter-spacing:3px;
     }
 
@@ -987,16 +1031,16 @@ section{
         font-size:7px;
     }
 
-    .tron-title{
+    .christmas-title{
         font-size:30px;
         letter-spacing:3px;
     }
 
-    .tron-text{
+    .christmas-text{
         font-size:16px;
     }
 
-    .tron-slogan{
+    .christmas-slogan{
         font-size:18px;
         letter-spacing:2px;
     }
@@ -1008,36 +1052,69 @@ section{
 
 <body>
 
+<!-- LUMINIȚE -->
 
-<!-- =========================
-     TOP BAR
-========================= -->
+<div class="lights">
+
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+
+</div>
+
+<!-- NINSOARE -->
+
+<div class="snow" style="left:5%;animation-duration:8s;">❄</div>
+<div class="snow" style="left:12%;animation-duration:11s;">❄</div>
+<div class="snow" style="left:20%;animation-duration:7s;">❄</div>
+<div class="snow" style="left:28%;animation-duration:10s;">❄</div>
+<div class="snow" style="left:36%;animation-duration:9s;">❄</div>
+<div class="snow" style="left:44%;animation-duration:12s;">❄</div>
+<div class="snow" style="left:52%;animation-duration:8s;">❄</div>
+<div class="snow" style="left:60%;animation-duration:10s;">❄</div>
+<div class="snow" style="left:68%;animation-duration:7s;">❄</div>
+<div class="snow" style="left:76%;animation-duration:11s;">❄</div>
+<div class="snow" style="left:84%;animation-duration:9s;">❄</div>
+<div class="snow" style="left:92%;animation-duration:13s;">❄</div>
+
+<!-- TOP BAR -->
 
 <div class="announcement-bar">
 
     <div class="announcement-track">
 
-        <span>RBL FESTIVAL 2027 ▼</span>
-        <span>SECURE YOUR TICKET NOW ▼</span>
-        <span>PAYMENT IN INSTALLMENTS AVAILABLE ▼</span>
+        <span>🎄 RBL CHRISTMAS 2026 ▼</span>
+        <span>🎁 SECURE YOUR TICKET NOW ▼</span>
+        <span>🎅 MERRY CHRISTMAS RBL ▼</span>
+        <span>❄️ RBL CHRISTMAS 2026 ▼</span>
 
-        <span>RBL FESTIVAL 2027 ▼</span>
-        <span>SECURE YOUR TICKET NOW ▼</span>
-        <span>PAYMENT IN INSTALLMENTS AVAILABLE ▼</span>
+        <span>🎄 RBL CHRISTMAS 2026 ▼</span>
+        <span>🎁 SECURE YOUR TICKET NOW ▼</span>
+        <span>🎅 MERRY CHRISTMAS RBL ▼</span>
+        <span>❄️ RBL CHRISTMAS 2026 ▼</span>
 
     </div>
 
 </div>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
     <div class="logo">
-        RBL FESTIVAL
+        🎄 RBL CHRISTMAS
     </div>
 
     <ul class="menu">
@@ -1058,22 +1135,27 @@ section{
             <a href="#program">PROGRAM</a>
         </li>
 
-        <!-- RBL CHRISTMAS -->
-        <li>
-            <a href="./RBL%20CHRISTMAS/index.html">
-                RBL CHRISTMAS
-            </a>
-        </li>
-
     </ul>
 
     <div class="nav-right">
 
         <div class="year-top">
-            2027
+            2026
         </div>
 
-        <a href="join.html" class="join-button">
+        <!-- BACK LA RBL FESTIVAL -->
+
+        <a
+            href="../index.html"
+            class="back-button"
+        >
+            ← BACK
+        </a>
+
+        <a
+            href="join.html"
+            class="join-button"
+        >
             JOIN RBL
         </a>
 
@@ -1081,43 +1163,44 @@ section{
 
 </nav>
 
-
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <section class="home" id="home">
 
     <div class="home-content">
 
+        <div class="christmas-icon">
+            🎄
+        </div>
+
         <div class="year">
-            2027
+            2026
         </div>
 
         <h1 class="title">
-            RBL FESTIVAL
+            RBL CHRISTMAS
         </h1>
 
         <div class="subtitle">
-            15–18 JULY 2027
+            🎅 CRĂCIUNUL RBL 🎅
         </div>
 
         <div class="subtitle">
-            THE FUTURE IS HERE
+            THE CHRISTMAS EXPERIENCE
         </div>
 
         <div class="home-buttons">
 
             <a href="#tickets" class="home-button">
-                BILETE
+                🎟️ BILETE
             </a>
 
             <a href="#artists" class="home-button">
-                ARTIȘTI
+                🎤 ARTIȘTI
             </a>
 
             <a href="#program" class="home-button">
-                PROGRAM
+                🎶 PROGRAM
             </a>
 
         </div>
@@ -1126,17 +1209,14 @@ section{
 
 </section>
 
-
-<!-- =========================
-     COUNTDOWN
-========================= -->
+<!-- COUNTDOWN -->
 
 <section class="countdown-section">
 
     <div class="countdown-box">
 
         <div class="countdown-title">
-            RBL FESTIVAL 2027 STARTS IN
+            🎄 RBL CHRISTMAS 2026 ÎNCEPE ÎN 🎄
         </div>
 
         <div id="countdown">
@@ -1167,19 +1247,16 @@ section{
 
 </section>
 
-
-<!-- =========================
-     BILETE
-========================= -->
+<!-- BILETE -->
 
 <section id="tickets">
 
     <h2 class="section-title">
-        BILETE
+        🎟️ BILETE
     </h2>
 
     <div class="ticket-alert">
-        🔥 GENERAL ACCESS 249 RON • VIP 499 RON 🔥
+        🎄 GENERAL ACCESS • VIP 🎄
     </div>
 
     <br><br>
@@ -1207,7 +1284,6 @@ section{
 
         </div>
 
-
         <div class="ticket-card">
 
             <h3>
@@ -1233,116 +1309,48 @@ section{
 
 </section>
 
-
-<!-- =========================
-     ARTIȘTI
-========================= -->
+<!-- ARTIȘTI -->
 
 <section id="artists">
 
     <h2 class="section-title">
-        ARTIȘTI
+        🎤 ARTIȘTI
     </h2>
 
     <div class="artists">
 
-        <div class="artist artist-1">
-            <span>MEDUZA</span>
-        </div>
-
-        <div class="artist artist-2">
-            <span>BABY GANG</span>
-        </div>
-
-        <div class="artist artist-3">
-            <span>AZTECA</span>
-        </div>
-
-        <div class="artist artist-4">
-            <span>PETRE ȘTEFAN</span>
-        </div>
-
-        <div class="artist artist-5">
-            <span>RAVA</span>
-        </div>
-
-        <div class="artist artist-6">
-            <span>ZARA LARSSON</span>
-        </div>
-
-        <div class="artist artist-7">
-            <span>BORIS BREJCHA</span>
-        </div>
-
-        <div class="artist artist-8">
-            <span>FRED AGAIN..</span>
-        </div>
-
-        <div class="artist artist-9">
-            <span>ANYMA</span>
-        </div>
-
-        <div class="artist artist-10">
-            <span>ANDRA</span>
-        </div>
-
-        <div class="artist artist-11">
-            <span>IRINA RIMES</span>
-        </div>
-
-        <div class="artist artist-12">
-            <span>ALBERT NBN</span>
-        </div>
-
-        <div class="artist artist-13">
-            <span>SKRILLEX</span>
-        </div>
-
-        <div class="artist artist-14">
-            <span>KISS FM</span>
-        </div>
-
-        <div class="artist artist-15">
-            <span>HUGEL</span>
-        </div>
-
-        <div class="artist artist-16">
-            <span>KÖLSCH</span>
-        </div>
-
-        <div class="artist artist-17">
-            <span>DTF</span>
-        </div>
-
-        <div class="artist artist-18">
-            <span>MARTIN GARRIX</span>
-        </div>
-
-        <div class="artist artist-19">
-            <span>SAGUNA</span>
-        </div>
-
-        <div class="artist artist-20">
-            <span>POST MALONE</span>
-        </div>
-
-        <div class="artist artist-21">
-            <span>DENISA IOANA</span>
-        </div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
+        <div class="artist"></div>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     PROGRAM
-========================= -->
+<!-- PROGRAM -->
 
 <section class="program-section" id="program">
 
     <h2 class="section-title">
-        PROGRAM LIVE
+        🎶 PROGRAM
     </h2>
 
     <div class="program-box">
@@ -1350,170 +1358,116 @@ section{
         <div class="program-live">
 
             <div class="live-indicator">
-                • FESTIVAL PROGRAM
+                • PROGRAM RBL CHRISTMAS
             </div>
 
         </div>
 
-
-        <!-- 15 JUL -->
-
         <div class="program-day">
 
             <h3>
-                15 JUL
+                🎄 ZIUA 1
             </h3>
 
             <div class="program-item">
                 <span class="program-time">18:00</span>
-                <span class="program-artist">OPENING</span>
+                <span class="program-artist">OPENING CHRISTMAS</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
                 <span class="program-time">19:00</span>
-                <span class="program-artist">MEDUZA</span>
+                <span class="program-artist">CHRISTMAS SHOW</span>
+                <span class="program-status">UPCOMING</span>
+            </div>
+
+            <div class="program-item">
+                <span class="program-time">21:00</span>
+                <span class="program-artist">RBL LIVE</span>
+                <span class="program-status">UPCOMING</span>
+            </div>
+
+            <div class="program-item">
+                <span class="program-time">23:00</span>
+                <span class="program-artist">CHRISTMAS PARTY</span>
+                <span class="program-status">UPCOMING</span>
+            </div>
+
+        </div>
+
+        <div class="program-day">
+
+            <h3>
+                🎁 ZIUA 2
+            </h3>
+
+            <div class="program-item">
+                <span class="program-time">18:00</span>
+                <span class="program-artist">RBL CHRISTMAS SHOW</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
                 <span class="program-time">20:00</span>
-                <span class="program-artist">BABY GANG</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">21:00</span>
-                <span class="program-artist">AZTECA</span>
+                <span class="program-artist">SPECIAL CHRISTMAS</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
                 <span class="program-time">22:00</span>
-                <span class="program-artist">PETRE ȘTEFAN</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">23:30</span>
-                <span class="program-artist">RAVA</span>
+                <span class="program-artist">NIGHT PARTY</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
         </div>
 
-
-        <!-- 16 JUL -->
-
         <div class="program-day">
 
             <h3>
-                16 JUL
-            </h3>
-
-            <div class="program-item">
-                <span class="program-time">19:00</span>
-                <span class="program-artist">ZARA LARSSON</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">21:00</span>
-                <span class="program-artist">BORIS BREJCHA</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">23:00</span>
-                <span class="program-artist">FRED AGAIN..</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-        </div>
-
-
-        <!-- 17 JUL -->
-
-        <div class="program-day">
-
-            <h3>
-                17 JUL
-            </h3>
-
-            <div class="program-item">
-                <span class="program-time">19:00</span>
-                <span class="program-artist">ANYMA</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">21:00</span>
-                <span class="program-artist">ANDRA</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">23:00</span>
-                <span class="program-artist">IRINA RIMES</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-        </div>
-
-
-        <!-- 18 JUL -->
-
-        <div class="program-day">
-
-            <h3>
-                18 JUL
+                🎅 ZIUA 3
             </h3>
 
             <div class="program-item">
                 <span class="program-time">18:00</span>
-                <span class="program-artist">ALBERT NBN</span>
+                <span class="program-artist">SANTA ARRIVAL</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
-                <span class="program-time">19:30</span>
-                <span class="program-artist">SKRILLEX</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">21:00</span>
-                <span class="program-artist">KISS FM</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">22:00</span>
-                <span class="program-artist">HUGEL</span>
+                <span class="program-time">20:00</span>
+                <span class="program-artist">CHRISTMAS LIVE</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
                 <span class="program-time">23:00</span>
-                <span class="program-artist">MARTIN GARRIX</span>
+                <span class="program-artist">RBL NIGHT</span>
+                <span class="program-status">UPCOMING</span>
+            </div>
+
+        </div>
+
+        <div class="program-day">
+
+            <h3>
+                ✨ FINAL
+            </h3>
+
+            <div class="program-item">
+                <span class="program-time">18:00</span>
+                <span class="program-artist">FINAL CHRISTMAS SHOW</span>
+                <span class="program-status">UPCOMING</span>
+            </div>
+
+            <div class="program-item">
+                <span class="program-time">21:00</span>
+                <span class="program-artist">RBL CHRISTMAS PARTY</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
             <div class="program-item">
                 <span class="program-time">00:00</span>
-                <span class="program-artist">SAGUNA</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">01:00</span>
-                <span class="program-artist">POST MALONE</span>
-                <span class="program-status">UPCOMING</span>
-            </div>
-
-            <div class="program-item">
-                <span class="program-time">02:00</span>
-                <span class="program-artist">DENISA IOANA</span>
+                <span class="program-artist">MERRY CHRISTMAS RBL</span>
                 <span class="program-status">UPCOMING</span>
             </div>
 
@@ -1523,64 +1477,39 @@ section{
 
 </section>
 
+<!-- FINAL -->
 
-<!-- =========================
-     TRON
-========================= -->
+<section class="christmas-section">
 
-<section class="tron-section">
+    <div class="christmas-content">
 
-    <div class="tron-content">
+        <div class="christmas-icon">
+            🎅🎄🎁
+        </div>
 
-        <h2 class="tron-title">
-            TRON: LEGACY
+        <h2 class="christmas-title">
+            RBL CHRISTMAS 2026
         </h2>
 
-        <p class="tron-text">
-            TRON: Legacy este o aventură SF futuristă
-            care te transportă într-o lume digitală
-            spectaculoasă, plină de lumini neon,
-            tehnologie avansată și curse electrizante.
+        <p class="christmas-text">
+            Pregătește-te pentru o experiență de Crăciun
+            plină de lumini, zăpadă, muzică și magie.
         </p>
 
-        <p class="tron-slogan">
-            ENTER THE FUTURE • LIVE THE EXPERIENCE
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FINAL
-========================= -->
-
-<section>
-
-    <h2 class="section-title">
-        RBL FESTIVAL 2027
-    </h2>
-
-    <div style="text-align:center">
-
-        <p class="subtitle">
-            15–18 IULIE 2027
+        <p class="christmas-slogan">
+            MERRY CHRISTMAS • LIVE THE RBL EXPERIENCE
         </p>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     COUNTDOWN JAVASCRIPT
-========================= -->
+<!-- COUNTDOWN JAVASCRIPT -->
 
 <script>
 
-const festivalDate =
-    new Date("2027-07-15T18:00:00").getTime();
+const christmasDate =
+    new Date("2026-12-25T18:00:00").getTime();
 
 const timer = setInterval(function(){
 
@@ -1588,8 +1517,7 @@ const timer = setInterval(function(){
         new Date().getTime();
 
     const distance =
-        festivalDate - now;
-
+        christmasDate - now;
 
     if(distance <= 0){
 
@@ -1597,19 +1525,17 @@ const timer = setInterval(function(){
 
         document.getElementById("countdown").innerHTML =
             "<div class='festival-started'>" +
-            "RBL FESTIVAL A ÎNCEPUT! 🔥" +
+            "🎄 RBL CHRISTMAS A ÎNCEPUT! 🎅" +
             "</div>";
 
         return;
     }
-
 
     const days =
         Math.floor(
             distance /
             (1000 * 60 * 60 * 24)
         );
-
 
     const hours =
         Math.floor(
@@ -1619,7 +1545,6 @@ const timer = setInterval(function(){
             (1000 * 60 * 60)
         );
 
-
     const minutes =
         Math.floor(
             (distance %
@@ -1628,7 +1553,6 @@ const timer = setInterval(function(){
             (1000 * 60)
         );
 
-
     const seconds =
         Math.floor(
             (distance %
@@ -1636,7 +1560,6 @@ const timer = setInterval(function(){
             /
             1000
         );
-
 
     document.getElementById("days").textContent =
         String(days).padStart(2,"0");
@@ -1649,7 +1572,6 @@ const timer = setInterval(function(){
 
     document.getElementById("seconds").textContent =
         String(seconds).padStart(2,"0");
-
 
 },1000);
 
